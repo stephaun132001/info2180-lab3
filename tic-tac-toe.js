@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function(){
         squares[i].setAttribute('class', 'square');
         
 }
-//var boardstatus = new Array();
+boardstatus = new Array();
 const X_class = 'X';
 const O_class = 'O';
 let circleTurn;
@@ -22,15 +22,50 @@ for (var x = 0; x < squares.length; x++){
         if (this.innerHTML !== "X" && this.innerHTML !== "O"){
             const currentClass = circleTurn ? O_class: X_class
             this.innerHTML = currentClass;
+            circleTurn = !circleTurn;
+            boardstatus = [currentClass];
+            winner();
 			this.classList.add("square","X");
-            swapTurns()
             }
+        })
             
         }
-    )}
-    function swapTurns(){
-        circleTurn = !circleTurn
-    }
+        function winner(){
+            if(squares[0].innerHTML !== "" && squares[0].innerHTML === squares[1].innerHTML && squares[0].innerHTML === squares[2].innerHTML ){
+                var jackpot = boardstatus[0];
+                document.getElementById("status").innerHTML = "Congratulations! " + jackpot + " is the Winner!";
+                document.getElementById("status").className=("you-won");
+            }else if (squares[0].innerHTML !== "" && squares[0].innerHTML === squares[3].innerHTML && squares[0].innerHTML === squares[6].innerHTML ){
+                var jackpot = boardstatus[0];
+                document.getElementById("status").innerHTML = "Congratulations! " + jackpot + " is the Winner!";
+                document.getElementById("status").className=("you-won");
+            }else if (squares[0].innerHTML !== "" && squares[0].innerHTML === squares[4].innerHTML && squares[0].innerHTML === squares[8].innerHTML ){
+                var jackpot = boardstatus[0];
+                document.getElementById("status").innerHTML = "Congratulations! " + jackpot + " is the Winner!";
+                document.getElementById("status").className=("you-won");
+            }else if (squares[3].innerHTML !== "" && squares[3].innerHTML === squares[4].innerHTML && squares[3].innerHTML === squares[5].innerHTML ){
+                var jackpot = boardstatus[3];
+                document.getElementById("status").innerHTML = "Congratulations! " + jackpot + " is the Winner!";
+                document.getElementById("status").className=("you-won");
+            }else if (squares[6].innerHTML !== "" && squares[6].innerHTML === squares[7].innerHTML && squares[6].innerHTML === squares[8].innerHTML ){
+                var jackpot = boardstatus[6];
+                document.getElementById("status").innerHTML = "Congratulations! " + jackpot + " is the Winner!";
+                document.getElementById("status").className=("you-won");
+            }else if (squares[1].innerHTML !== "" && squares[1].innerHTML === squares[4].innerHTML && squares[1].innerHTML === squares[7].innerHTML ){
+                var jackpot = boardstatus[1];
+                document.getElementById("status").innerHTML = "Congratulations! " + jackpot + " is the Winner!";
+                document.getElementById("status").className=("you-won");
+            }else if (squares[2].innerHTML !== "" && squares[2].innerHTML === squares[5].innerHTML && squares[2].innerHTML === squares[8].innerHTML ){
+                var jackpot = boardstatus[2];
+                document.getElementById("status").innerHTML = "Congratulations! " + jackpot + " is the Winner!";
+                document.getElementById("status").className=("you-won");
+            }else if (squares[2].innerHTML !== "" && squares[2].innerHTML === squares[4].innerHTML && squares[2].innerHTML === squares[6].innerHTML ){
+                var jackpot = boardstatus[2];
+                document.getElementById("status").innerHTML = "Congratulations! " + jackpot + " is the Winner!";
+                document.getElementById("status").className=("you-won");
+            }
+        }
+        
 })
 
 
