@@ -11,6 +11,13 @@ const X_class = 'X';
 const O_class = 'O';
 let circleTurn;
 for (var x = 0; x < squares.length; x++){
+    squares[x].addEventListener("mouseover", function (){
+        this.classList.add("hover");
+    });
+        
+    squares[x].addEventListener("mouseout", function (){
+        this.classList.remove("hover");
+    });	
     squares[x].addEventListener ('click', function(){
         if (this.innerHTML !== "X" && this.innerHTML !== "O"){
             const currentClass = circleTurn ? O_class: X_class
@@ -18,6 +25,7 @@ for (var x = 0; x < squares.length; x++){
 			this.classList.add("square","X");
             swapTurns()
             }
+            
         }
     )}
     function swapTurns(){
