@@ -1,10 +1,28 @@
 document.addEventListener("DOMContentLoaded", function(){
     let squares = document.querySelectorAll('#board div')
-    plyerTurn =0 
+    playerTurn =0;
+    var i;
     for (let i = 0; i < squares.length; i++){
         squares[i].setAttribute('class', 'square');
         
 }
+//var boardstatus = new Array();
+const X_class = 'X';
+const O_class = 'O';
+let circleTurn;
+for (var x = 0; x < squares.length; x++){
+    squares[x].addEventListener ('click', function(){
+        if (this.innerHTML !== "X" && this.innerHTML !== "O"){
+            const currentClass = circleTurn ? O_class: X_class
+            this.innerHTML = currentClass;
+			this.classList.add("square","X");
+            swapTurns()
+            }
+        }
+    )}
+    function swapTurns(){
+        circleTurn = !circleTurn
+    }
 })
 
 
