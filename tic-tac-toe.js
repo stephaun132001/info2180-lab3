@@ -1,21 +1,9 @@
 document.addEventListener("DOMContentLoaded", function(){
-let squares = document.querySelectorAll('#board div')
-let circleTurn 
-const X_class = 'X';
-const O_class = 'O';
-
-for (let i = 0; i < squares.length; i++){
-    squares[i].classList.add('square', "X");
-    squares[i].addEventListener('click', function(){
-        console.log('Square ' + i + 'clicked')
-        const currentClass = circleTurn ? O_class: X_class
-        circleTurn = !circleTurn
-        squares[i].innerHTML = currentClass;
-        clicked();
-        //console.log(squares);
+    let squares = document.querySelectorAll('#board div')
+    plyerTurn =0 
+    for (let i = 0; i < squares.length; i++){
+        squares[i].setAttribute('class', 'square');
         
-        
-    })
 }
 })
 
@@ -96,18 +84,3 @@ for (let i = 0; i < squares.length; i++){
 //      }
 //     }
 // })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
